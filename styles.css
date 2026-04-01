@@ -53,7 +53,13 @@ header input{
 .rating{
   color: rgb(209, 185, 44);
 }
-
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.movie{
+  animation: fadeIn 0.5s ease-in-out;
+}
 @media(max-width: 600px){
   header {
     flex-direction: column;
@@ -65,5 +71,7 @@ header input{
   header h1 {
     font-size: 20px;
   }
-
+  .movies{
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+ }
 }
