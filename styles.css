@@ -61,9 +61,6 @@ header input{
   header input {
     width: 100%;
   }
-  header h1 {
-    font-size: 20px;
-  }
   .movies {
     grid-template-columns: repeat(2, 1fr);
   }
