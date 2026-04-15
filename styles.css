@@ -12,6 +12,8 @@ header{
   background: #000;
 }
 header h1{
+  font-size:35px;
+  margin-left: 30px;
   color: red;
 }
 header input{
@@ -20,15 +22,66 @@ header input{
   border-radius: 4px;
   border: none;
 }
+.left-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.menu-icon{
+  cursor: pointer;
+  font-size:30px;
+  transition: 0.3s ease;
+}
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+.sidebar{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background: #000;
+  padding-top: 50px;
+}
+.close-btn{
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 24px;
+}
+.sidebar ul{
+  list-style: none;
+  padding: 0;
+}
+.sidebar li{
+  padding: 15px;
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+}
+.sidebar li:hover{
+  background: #222;
+}
+.hidden{
+  display: none;
+}
 .container{
   padding: 20px;
 }
 .movies{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
 }
 .movie{
+  flex: 1 1 180px;
+  max-width: 200px;
   background: #222;
   padding: 10px;
   border-radius: 10px;
@@ -53,16 +106,51 @@ header input{
 .rating{
   color: rgb(209, 185, 44);
 }
+.category-row{
+  margin-bottom: 30px;
+}
+.category-movies{
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+}
+.category-movies .movie{
+  min-width: 150px;
+}
 @media(max-width: 600px){
   header {
+    display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
+    height:100px;
   }
   header input {
     width: 100%;
   }
+  .left-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .menu-icon{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
   header h1 {
     font-size: 35px;
+    text-align: center;
+    margin: 0;
+  }
+  .sidebar {
+    width: 70%;
+  }
+  .container {
+    padding: 10px;
   }
   .movies {
     grid-template-columns: repeat(2, 1fr);
